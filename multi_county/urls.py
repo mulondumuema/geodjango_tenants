@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import *
 from django.contrib import admin
-from django.urls import path
+admin.autodiscover()
+from tenant_app.views import IndexView, AccidentsGeojson
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+urlpatterns = (
+    url(r'^$', IndexView.as_view(), name="index"),    
+    url(r'^accidentsGeojson/', AccidentsGeojson.as_view(), name="accidentsGeojson"),
+)

@@ -11,7 +11,7 @@ class Accident(models.Model):
     accident_severity = models.IntegerField()
     number_of_vehicles = models.IntegerField()
     number_of_casualties = models.IntegerField()
-    date = models.DateField()
+    date = models.DateField(null=True)
     day_of_week = models.IntegerField()
     time = models.TimeField()
     # GeoDjango-specific: a geometry field (PointField)
