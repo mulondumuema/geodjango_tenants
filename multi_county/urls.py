@@ -17,8 +17,10 @@ from django.conf.urls import *
 from django.contrib import admin
 admin.autodiscover()
 from tenant_app.views import IndexView, AccidentsGeojson
+from django.urls import path
+
 
 urlpatterns = (
-    url(r'^$', IndexView.as_view(), name="index"),    
-    url(r'^accidentsGeojson/', AccidentsGeojson.as_view(), name="accidentsGeojson"),
+    path('', IndexView.as_view(), name="index"),    
+    path('accidentsGeojson/', AccidentsGeojson.as_view(), name="accidentsGeojson"),
 )
